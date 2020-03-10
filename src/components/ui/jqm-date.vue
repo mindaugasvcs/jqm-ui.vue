@@ -21,7 +21,8 @@
             },
             onBlur(event) {
                 if (!this.inline) {
-                    if (!event.relatedTarget || !this.popupContainer.contains(event.relatedTarget)) {
+                    var relatedTarget = event.relatedTarget || document.activeElement; // IE11
+                    if (!relatedTarget || !this.popupContainer.contains(relatedTarget)) {
                         this.$root.$emit("hide-popup", this.name);
                     }
                 }

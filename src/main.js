@@ -67,10 +67,10 @@ Vue.component('jqm-date', JqmDate);
 Vue.prototype.$computeAbsoluteRect = function(element) {
     var relative = element.getBoundingClientRect();
     return {
-        left: relative.left + (window.pageXOffset || window.scrollX),
-        top: relative.top + (window.pageYOffset || window.scrollY),
-        right: relative.right + (window.pageXOffset || window.scrollX),
-        bottom: relative.bottom + (window.pageYOffset || window.scrollY),
+        left: relative.left + window.pageXOffset,
+        top: relative.top + window.pageYOffset,
+        right: relative.right + window.pageXOffset,
+        bottom: relative.bottom + window.pageYOffset,
         width: relative.width,
         height: relative.height
     };
