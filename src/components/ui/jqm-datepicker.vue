@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-if="pickingMode == 'days'">
-            <div class="ui-datepicker-header ui-body-a">
+            <div class="ui-datepicker-header ui-body-inherit">
                 <a v-on:click="prevMonth"
                     v-on:keydown.enter="prevMonth"
                     class="ui-datepicker-prev ui-corner-all ui-btn ui-btn-icon-notext ui-btn-inline ui-icon-arrow-l ui-shadow"
@@ -19,14 +19,14 @@
             <table ref="table" class="ui-datepicker-calendar" tabindex="-1">
                 <thead>
                     <tr>
-                        <th v-for="(w, i) in 7" class="ui-bar-a"><span v-bind:title="weekDays[i]">{{ weekDays[i] | substr(0, 2) }}</span></th>
+                        <th v-for="(w, i) in 7" class="ui-bar-inherit"><span v-bind:title="weekDays[i]">{{ weekDays[i] | substr(0, 2) }}</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="row in rows">
                         <template v-if="row === 1">
-                            <td v-for="d in blankDaysBefore" class="ui-body-a"></td>
-                            <td v-for="d in (7 - blankDaysBefore)" class="ui-body-a">
+                            <td v-for="d in blankDaysBefore" class="ui-body-inherit"></td>
+                            <td v-for="d in (7 - blankDaysBefore)" class="ui-body-inherit">
                                 <a v-on:click="selectDay(d)"
                                     v-on:keydown.enter="selectDay(d)"
                                     class="ui-btn"
@@ -35,17 +35,17 @@
                             </td>
                         </template>
                         <template v-else-if="row === rows">
-                            <td v-for="d in (7 - blankDaysAfter)" class="ui-body-a">
+                            <td v-for="d in (7 - blankDaysAfter)" class="ui-body-inherit">
                                 <a v-on:click="selectDay(renderDay(d, row))"
                                     v-on:keydown.enter="selectDay(renderDay(d, row))"
                                     class="ui-btn"
                                     v-bind:class="dayClass(renderDay(d, row))"
                                     tabindex="0">{{ renderDay(d, row) }}</a>
                             </td>
-                            <td v-for="d in blankDaysAfter" class="ui-body-a"></td>
+                            <td v-for="d in blankDaysAfter" class="ui-body-inherit"></td>
                         </template>
                         <template v-else>
-                            <td v-for="d in 7" class="ui-body-a">
+                            <td v-for="d in 7" class="ui-body-inherit">
                                 <a v-on:click="selectDay(renderDay(d, row))"
                                     v-on:keydown.enter="selectDay(renderDay(d, row))"
                                     class="ui-btn"
@@ -59,7 +59,7 @@
         </template>
 
         <template v-else-if="pickingMode == 'months'">
-            <div class="ui-datepicker-header ui-body-a">
+            <div class="ui-datepicker-header ui-body-inherit">
                 <a v-on:click="prevYear(1)"
                     v-on:keydown.enter="prevYear(1)"
                     class="ui-datepicker-prev ui-corner-all ui-btn ui-btn-icon-notext ui-btn-inline ui-icon-arrow-l ui-shadow"
@@ -77,7 +77,7 @@
             <table ref="table" class="ui-datepicker-calendar" tabindex="-1">
                 <tbody>
                     <tr v-for="(r, i) in 4">
-                        <td v-for="(n, m) in 3" class="ui-body-a">
+                        <td v-for="(n, m) in 3" class="ui-body-inherit">
                             <a v-on:click="selectMonth(m + i * 3)"
                                 v-on:keydown.enter="selectMonth(m + i * 3)"
                                 class="ui-btn"
@@ -90,7 +90,7 @@
         </template>
 
         <template v-else-if="pickingMode == 'years'">
-            <div class="ui-datepicker-header ui-body-a">
+            <div class="ui-datepicker-header ui-body-inherit">
                 <a v-on:click="prevYear(10)"
                     v-on:keydown.enter="prevYear(10)"
                     class="ui-datepicker-prev ui-corner-all ui-btn ui-btn-icon-notext ui-btn-inline ui-icon-arrow-l ui-shadow"
@@ -108,7 +108,7 @@
             <table ref="table" class="ui-datepicker-calendar" tabindex="-1">
                 <tbody>
                     <tr v-for="(r, i) in 4">
-                        <td v-for="(n, m) in 3" class="ui-body-a">
+                        <td v-for="(n, m) in 3" class="ui-body-inherit">
                             <a v-on:click="selectYear(startYear + m + i * 3)"
                                 v-on:keydown.enter="selectYear(startYear + m + i * 3)"
                                 class="ui-btn"

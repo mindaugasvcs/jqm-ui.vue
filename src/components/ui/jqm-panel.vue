@@ -11,7 +11,7 @@
 
 <script>
     export default {
-        props: ["position", "display", "show", "theme"],
+        props: ["position", "display", "show", "swatch"],
         data() {
             return {
                 height: 240,
@@ -28,7 +28,7 @@
         computed: {
             panelClass() {
                 return [
-                    this.theme ? 'ui-body-' + this.theme : 'ui-body-c',
+                    this.swatch ? 'ui-body-' + this.swatch : 'ui-body-c',
                     {
                         'ui-panel-position-left': this.position === "left",
                         'ui-panel-position-right': this.position === "right",

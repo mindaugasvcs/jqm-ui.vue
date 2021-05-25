@@ -135,17 +135,12 @@
 .ui-slider-track {
     border: 1px solid #929292;
     background: #bababa;
-    background: -webkit-gradient(linear,  left top, left bottom,  from(#bababa),color-stop(50%, #f8f8f8),to(#f8f8f8));
-    background: -o-linear-gradient(top,  #bababa 0%,#f8f8f8 50%,#f8f8f8 100%);
     background: linear-gradient(to bottom,  #bababa 0%,#f8f8f8 50%,#f8f8f8 100%);
 }
 .ui-slider-track .ui-btn.ui-slider-handle {
     border: 1px solid #bbbbbb;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.75), 0 2px 0 rgba(255,255,255,0.75) inset;
     box-shadow: 0 1px 3px rgba(0,0,0,0.75), 0 2px 0 rgba(255,255,255,0.75) inset;
     background: #fafafa;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #fafafa), color-stop(0%, #d4d4d4));
-    background: -o-linear-gradient(top, #fafafa 100%, #d4d4d4 0%);
     background: linear-gradient(to bottom, #fafafa 100%, #d4d4d4 0%);
 }
 </style>

@@ -32,7 +32,49 @@
             event: "change"
         },
         // Multiple select is bound to Array (value ? value : text)
-        props: ["name", "options", "value", "multiple", "filterable", "icons", "first", "last", "mini", "positionTo", "placeholder", "classes", "search"],
+        props: {
+            name: String,
+            options: Object,
+            value: [String, Array],
+            multiple: Boolean,
+            filterable: Boolean,
+            icons: Boolean,
+            first: Boolean,
+            last: Boolean,
+            mini: Boolean,
+            positionTo: String,
+            placeholder: String,
+            classes: Object,
+            search: String,
+            language: {
+                type: String,
+                default: "en"
+            }
+        },
+        data() {
+            return {
+                labelSingle: {
+                    en: 'Choose ...',
+                    es: 'Escoger ...',
+                    fr: 'Choisir ...',
+                    ru: 'Выбери ...',
+                    pt: 'Escolher ...',
+                    de: 'Wählen ...',
+                    it: 'Scegliere ...',
+                    lt: 'Pasirink ...'
+                },
+                labelMultiple: {
+                    en: 'Choose multiple ...',
+                    es: 'Elija múltiples ...',
+                    fr: 'Choisissez plusieurs ...',
+                    ru: 'Выбери несколько ...',
+                    pt: 'Escolha vários ...',
+                    de: 'Wählen Sie mehrere ...',
+                    it: 'Scegli più ...',
+                    lt: 'Pasirink kelis ...'
+                }
+            }
+        },
         computed: {
             selectedOptionsCount() {
                 if (this.value) {
@@ -57,10 +99,12 @@
                         }, []).join(", ");
                     }
                 }
-                if (this.multiple) {
-                    if (!optionsText) optionsText = "Choose options";
-                } else {
-                    if (!optionsText) optionsText = "Choose one";
+                if (!optionsText) {
+                    if (this.multiple) {
+                        optionsText = this.labelMultiple[this.language];
+                    } else {
+                        optionsText = this.labelSingle[this.language];
+                    }
                 }
                 return optionsText;
             }

@@ -3,7 +3,7 @@
         <div class="ui-selectmenu ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all">
             <div class="ui-header ui-bar-inherit" v-bind:class="[multiple ? '' : 'ui-screen-hidden']">
                 <h1 class="ui-title" style="user-select: none;">Choose options</h1>
-                <a href="#" v-on:click.prevent="hide" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-delete ui-corner-all" title="Close">Close</a>
+                <a v-on:click="hide" class="ui-btn ui-btn-left ui-btn-icon-notext ui-icon-delete ui-corner-all" title="Close" role="button" tabindex="0">Close</a>
             </div>
             <form v-if="filterable" v-on:submit.prevent="onSubmit">
                 <jqm-input type="search" ref="input" v-model="searchText" v-on:input="base.$emit('input', $event)" v-bind:placeholder="placeholder"></jqm-input>
@@ -126,6 +126,9 @@
             }
         },
         watch: {
+            value(newValue, oldValue) {
+                this.selectedOption = newValue;
+            },
             search(newValue, oldValue) {
                 this.searchText = newValue;
                 this.base.$emit('input', newValue)
